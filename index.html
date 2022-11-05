@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="normal.css">
+    <link rel="stylesheet" href="file.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tube tube1" onclick="tub('tube1')">
+            <div class="one obj" value="1"></div>
+            <div class="two obj" value="2"></div>
+            <div class="three obj" value="3"></div>
+            <div class="four obj" value="4"></div>
+        </div>
+        <div class="tube tube2" onclick="tub('tube2')">
+            <div class="one obj" value="5"></div>
+            <div class="two obj" value="5"></div>
+            <div class="three obj" value="4"></div>
+            <div class="four obj" value="5"></div>
+        </div>
+        <div class="tube tube3" onclick="tub('tube3')">
+            <div class="one obj" value="1"></div>
+            <div class="two obj" value="3"></div>
+            <div class="three obj" value="3"></div>
+            <div class="four obj" value="8"></div>
+        </div>
+        <div class="tube tube4" onclick="tub('tube4')">
+            <div class="one obj" value="6"></div>
+            <div class="two obj" value="2"></div>
+            <div class="three obj" value="6"></div>
+            <div class="four obj" value="4"></div>
+        </div>
+        <div class="tube tube5" onclick="tub('tube5')">
+            <div class="one obj" value="7"></div>
+            <div class="two obj" value="8"></div>
+            <div class="three obj" value="1"></div>
+            <div class="four obj" value="1"></div>
+        </div>
+        <div class="tube tube6" onclick="tub('tube6')">
+            <div class="one obj" value="6"></div>
+            <div class="two obj" value="2"></div>
+            <div class="three obj" value="7"></div>
+            <div class="four obj" value="5"></div>
+        </div>
+        <div class="tube tube7" onclick="tub('tube7')">
+            <div class="one obj" value="7"></div>
+            <div class="two obj" value="2"></div>
+            <div class="three obj" value="4"></div>
+            <div class="four obj" value="6"></div>
+        </div>
+        <div class="tube tube8" onclick="tub('tube8')">
+            <div class="one obj" value="3"></div>
+            <div class="two obj" value="8"></div>
+            <div class="three obj" value="7"></div>
+            <div class="four obj" value="8"></div>
+        </div>
+        <div class="tube tube9" onclick="tub('tube9')">
+        </div>
+        <div class="tube tube10" onclick="tub('tube10')">
+        </div>
+    </div>
+    <div class="reload">
+        <p class="lin" onclick="location.reload();">click</p>
+    </div>
+    <!-- <div class="win"><h2>Winner</h2></div> -->
+    <script>
+        let objec = {
+            "1" : "green",
+            "2" : "lightgreen",
+            "3" : "goldenrod",
+            "4" : "red",
+            "5" : "brown",
+            "6" : "blue",
+            "7" : "blueviolet",
+            "8" : "yellow"
+        }
+        let objec2 = {
+            "1" : "one",
+            "2" : "two",
+            "3" : "three",
+            "4" : "four",
+            "5" : "five",
+            "6" : "six",
+            "7" : "seven",
+            "8" : "eight"
+        }
+        let f1 = document.querySelectorAll(".one");
+        let f2 = document.querySelectorAll(".two");
+        let f3 = document.querySelectorAll(".three");
+        let f4 = document.querySelectorAll(".four");
+        let obb = document.querySelectorAll(".obj");
+        let arr1 = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8];
+        let arr2 = [];
+        let arr5 = [5,8,1,8,4,7,4,3,7,2,6,1,6,3,8,4,7,6,6,7,3,2,5,2,5,1,1,2,4,5,3,8]; //valied
+        let arr6 = [4,7,6,2,8,3,3,3,2,7,1,1,5,5,4,7,5,1,7,8,8,5,6,6,1,2,6,8,2,4,4,3]; // valid
+        let arr7 = [1,6,2,5,3,4,3,7,1,8,3,5,1,2,7,8,7,2,6,5,5,2,4,6,4,6,8,3,8,1,4,7]; //valid
+
+        function addlev(lev){
+            function addele(){
+                let ra = Math.floor(Math.random() * 32 ) ;
+                if(arr1[ra] != ""){
+                    lev.push(arr1[ra]);
+                    arr1[ra] = "" ;
+                }
+            }
+            while(lev.length < 32){
+                for(i=0 ; i < obb.length ; i++){
+                    addele(i);
+                }
+            }
+            arr1 = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8];
+        }
+        // addlev(arr2);
+        // console.log(arr2);
+        function lop(t){
+            for(i=0 ; i < t.length ; i ++){
+                if(t[i].getAttribute("value") == 1){
+                    t[i].style.backgroundColor = "green";
+                    t[i].style.color = "green";
+                }else if(t[i].getAttribute("value") == 2){
+                    t[i].style.backgroundColor = "lightgreen";
+                    t[i].style.color = "lightgreen";
+                }else if(t[i].getAttribute("value") == 3){
+                    t[i].style.backgroundColor = "goldenrod";
+                    t[i].style.color = "goldenrod";
+                }else if(t[i].getAttribute("value") == 4){
+                    t[i].style.backgroundColor = "red";
+                    t[i].style.color = "red";
+                }
+                else if(t[i].getAttribute("value") == 5){
+                    t[i].style.backgroundColor = "brown";
+                    t[i].style.color = "brown";
+                }
+                else if(t[i].getAttribute("value") == 6){
+                    t[i].style.backgroundColor = "blue";
+                    t[i].style.color = "blue";
+                }
+                else if(t[i].getAttribute("value") == 7){
+                    t[i].style.backgroundColor = "blueviolet";
+                    t[i].style.color = "blueviolet";
+                }
+                else if(t[i].getAttribute("value") == 8){
+                    t[i].style.backgroundColor = "yellow";
+                    t[i].style.color = "yellow";
+                }
+            }
+            // console.log("shuffle");
+        }
+        function tolop(){
+            lop(f1);  
+            lop(f2);  
+            lop(f3);  
+            lop(f4); 
+            // console.log("now");
+        } 
+        tolop();
+        function shuffle(ar){
+                let hh = document.querySelectorAll(".tube");
+                for(l=0; l < hh.length ; l++){
+                    hh[l].classList.remove("disabledbutton");
+                }
+                let f1 = document.querySelectorAll(".one");
+                let f2 = document.querySelectorAll(".two");
+                let f3 = document.querySelectorAll(".three");
+                let f4 = document.querySelectorAll(".four");
+                for(l=0 ; l < obb.length ; l++){
+                    obb[l].setAttribute("value" , `${ar[l]}`);
+                    // console.log("three");
+                }
+                tolop();
+            }
+        function place(){
+            let div_s = document.querySelectorAll(".tube");
+            for(o = 0 ; o < div_s.length ; o++){
+                for(k=0 ; k < 4 ; k++){
+                    if(div_s[o].childElementCount < 4){
+                        let zx = div_s[o].childElementCount ;
+                        let di = document.createElement("div");
+                        div_s[o].prepend(di);
+                        if(zx == "3"){
+                            di.classList.add(`${objec2[1]}`);
+                        }else if(zx == "2"){
+                            di.classList.add(`${objec2[2]}`);
+                        }else if(zx == "1"){
+                            di.classList.add(`${objec2[3]}`);
+                        }else if(zx == "0"){
+                            di.classList.add(`${objec2[4]}`);
+                        }else{
+                            di.classList.add(`onet`);
+                        }
+                        di.classList.add("obj");
+                        let att = document.createAttribute("value");
+                        att.value = "1" ;
+                        di.setAttributeNode(att);
+                    }
+                }
+                // console.log("one");
+            }
+            // console.log("two");
+            document.querySelector(".tube9 div:nth-child(1)").remove();
+            document.querySelector(".tube9 div:nth-child(1)").remove();
+            document.querySelector(".tube9 div:nth-child(1)").remove();
+            document.querySelector(".tube9 div:nth-child(1)").remove();
+            document.querySelector(".tube10 div:nth-child(1)").remove();
+            document.querySelector(".tube10 div:nth-child(1)").remove();
+            document.querySelector(".tube10 div:nth-child(1)").remove();
+            document.querySelector(".tube10 div:nth-child(1)").remove();
+        }
+
+        window.localStorage.setItem("cond" , "not");
+        window.localStorage.setItem("hover" , "none");
+        function tub(e){
+            let hh = document.querySelectorAll(".tube");
+            for(l=0; l < hh.length ; l++){
+                hh[l].classList.remove("hover");
+            }
+            let g = window.localStorage.getItem("cond");
+            let h = window.localStorage.getItem("hover");
+            if(g === "not"){
+                let b = document.querySelector(`.${e}`).childElementCount ;
+                if(b > 0){
+                    let a = document.querySelector(`.${e} div:first-of-type`).getAttribute("value");
+                    window.localStorage.setItem("selected" , objec[a]);
+                    window.localStorage.setItem("val" , a);
+                    window.localStorage.setItem("cond" , "clicked");
+                    let c = window.localStorage.getItem("val");
+                    let d = window.localStorage.getItem("hover");
+                    window.localStorage.setItem("hover" , `${e}`);
+                let r = document.querySelector(`.${e}`).classList.add("hover");
+                }
+            }else{
+                let b = document.querySelector(`.${e}`).childElementCount ;
+                if(b == 0 ){
+                    let c = window.localStorage.getItem("val");
+                    let d = window.localStorage.getItem("hover");
+                    document.querySelector(`.${d} div:first-of-type`).remove();
+                    let di = document.createElement("div");
+                    let st = document.querySelector(`.${e}`);
+                    st.prepend(di);
+                    di.classList.add(`${objec2[4 - b]}`);
+                    di.classList.add("obj");
+                    let att = document.createAttribute("value");
+                    att.value = c ;
+                    di.setAttributeNode(att);
+                    let f1 = document.querySelectorAll(".one");
+                    let f2 = document.querySelectorAll(".two");
+                    let f3 = document.querySelectorAll(".three");
+                    let f4 = document.querySelectorAll(".four");
+                    function tolop(){
+                        lop(f1);  
+                        lop(f2);  
+                        lop(f3);  
+                        lop(f4);
+                    }
+                    tolop(); 
+                    window.localStorage.setItem("cond" , "not");
+                    window.localStorage.setItem("hover" , "none");
+                }else{
+                    let a = document.querySelector(`.${e} div:first-of-type`).getAttribute("value");
+                    let c = window.localStorage.getItem("val");
+                    let d = window.localStorage.getItem("hover");
+                    if(b < 4 && a === c && e != d && g ==="clicked"){
+                        document.querySelector(`.${d} div:first-of-type`).remove();
+                        let di = document.createElement("div");
+                        let st = document.querySelector(`.${e}`);
+                        st.prepend(di);
+                        di.classList.add(`${objec2[4 - b]}`);
+                        di.classList.add("obj");
+                        let att = document.createAttribute("value");
+                        att.value = a ;
+                        di.setAttributeNode(att);
+                        let f1 = document.querySelectorAll(".one");
+                        let f2 = document.querySelectorAll(".two");
+                        let f3 = document.querySelectorAll(".three");
+                        let f4 = document.querySelectorAll(".four");
+                        function tolop(){
+                            lop(f1);  
+                            lop(f2);  
+                            lop(f3);  
+                            lop(f4);
+                        }
+                        tolop(); 
+                        window.localStorage.setItem("cond" , "not");
+                        window.localStorage.setItem("hover" , "none");
+                    }
+                    else{
+                        window.localStorage.setItem("cond" , "not");
+                        window.localStorage.setItem("hover" , "none");
+                    }
+                    let n = document.querySelector(`.${e}`).childElementCount ;
+                    if(n == 4){
+                        let a1 = document.querySelector(`.${e} .one`).getAttribute("value");
+                        let a2 = document.querySelector(`.${e} .two`).getAttribute("value");
+                        let a3 = document.querySelector(`.${e} .three`).getAttribute("value");
+                        let a4 = document.querySelector(`.${e} .four`).getAttribute("value");
+                        if(a1 == a2 && a2 == a3 && a3 == a4){
+                            document.querySelector(`.${e}`).classList.add("disabledbutton");                          
+                            let yy = document.querySelectorAll(".disabledbutton");
+                            // console.log(yy.length);
+                            if(yy.length == 8){
+                                // console.log("winner");
+                                let cr = document.createElement("div");
+                                // let btt = document.createElement("button");
+                                let crt = document.createTextNode("Winner");
+                                // let btcrt = document.createTextNode("Next Level");
+                                document.body.appendChild(cr);
+                                // document.body.appendChild(btt);
+                                cr.appendChild(crt);
+                                // btt.appendChild(btcrt);
+                                cr.classList.add("win");
+                                // btt.classList.add("butt");
+                                // btt.setAttribute("onclick" , "place(arr5)");
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

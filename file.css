@@ -1,0 +1,159 @@
+/* .tube::before{
+    content: '';
+    width: 80px;
+    height: 10px;
+    position: absolute;
+    top: 0px;
+    background-color: #777;
+    left: 1px;
+    display: none;
+} */
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto; 
+    position: relative;
+    display: flex;
+    justify-content: center;  
+    top:100px;
+    transition: .5s;
+    flex-wrap: wrap;
+}
+body{
+    margin: 0px;
+}
+.tube{
+    width:60px;
+    height: 270px;
+    border: 5px solid black;
+    border-radius: 0 0 25px 25px;
+    background-color: aliceblue;
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    top:0px;
+}
+
+.obj{
+    width:100%;
+    position: absolute;
+    height: 60px;
+    z-index: 1;
+}
+    .one{
+    bottom:180px;
+}
+.two{
+    bottom:120px;
+}
+.three{
+    bottom:60px;
+}
+.four{
+    bottom: 0px;
+}
+.hover{
+    top:-30px;
+}
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+.win{
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    font-size: 150px;
+    transition: 1s;
+    color: #777;
+}
+.lin{
+    position: absolute;
+    z-index: 3;
+    top: 5px;
+    right: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color:rgb(29, 18, 18);
+    transition: .5s;
+    text-decoration: none;
+    margin: 0px;
+}
+.lin:hover{
+    color: cadetblue;
+    font-size: 35px;
+}
+.butt{
+    position: absolute;
+    top: 450px;
+    left: 450px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.butt:hover{
+    padding: 18px;
+    color: white;
+    background-color: black;
+}
+/* @media (min-width: 450px){
+    .tube{
+        min-width:47px;
+        margin-bottom: 40px;
+    }
+    .container{
+        flex-wrap: wrap;
+    }    
+}
+@media (max-width: 350px){
+    .tube{
+        min-width:35px;
+        margin-bottom: 40px;
+    }
+    .container{
+        flex-wrap: wrap;
+    }    
+} */
+
+@media(min-width: 768px){
+    .container{
+        width: 700px;
+    }
+}
+/* medium screen  */
+@media(min-width: 992px){
+    .container{
+        width: 925px;
+    }
+}
+/* large screen  */
+@media(min-width: 1200px){
+    .container{
+        width: 1130px;
+    }
+}
+
+@media (max-width: 767px){
+    .container{
+        max-width: 740px;
+        top: 50px;
+    }
+    .tube{
+        max-width: 40px;
+    }
+    .win{
+        top: 50%;
+        left: 10%;
+        font-size: 100px;
+    }
+    .lin{
+        font-size: 15px;
+    }
+}
